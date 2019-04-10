@@ -38,7 +38,7 @@ public class BST <T extends Comparable <T>>{
         if (node == null){ //empty tree contains no elements
             BSTNode newNode = new BSTNode(value); //create a new tree which contains a single element
             return newNode;
-        } else if (node.data.compareTo(value) > 0){ //if value to be inserted is larger than root
+        } else if (node.data.compareTo(value) > 0){ //if value to be inserted is larger than value stored in node
             node.left = insert(node.left, value);
         } else {
             node.right = insert(node.right, value);
@@ -67,7 +67,7 @@ public class BST <T extends Comparable <T>>{
         if (node == null){ //empty tree contains no elements
             return null; //so nothing to delete
         }
-        if (node.data.compareTo(value) == 0) { //if value stored in root appears to be the value I want to delete
+        if (node.data.compareTo(value) == 0) { //if value stored in node appears to be the value I want to delete
             if (node.left == null) { //if the node is a leaf (0 children)
                 return node.right;
             } else if (node.right == null) { //deleting a node with 1 child
@@ -82,7 +82,7 @@ public class BST <T extends Comparable <T>>{
                     return node;
                 }
             }
-        } else if (node.data.compareTo(value) < 0){ //if value stored in root is less than the value I want to delete
+        } else if (node.data.compareTo(value) < 0){ //if value stored in node is less than the value I want to delete
             node.right = delete(node.right, value);
             return node;
         } else {
@@ -103,8 +103,3 @@ public class BST <T extends Comparable <T>>{
 
 
 }
-
-
-
-
-
